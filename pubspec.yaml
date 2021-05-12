@@ -44,6 +44,7 @@ dependencies:
   transparent_image: ^1.0.0
   cached_network_image: ^1.1.1
   flutter_spinkit: "^4.1.2"
+  fancy_shimmer_image: ^1.0.0
 
 
 dev_dependencies:

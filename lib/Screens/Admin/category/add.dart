@@ -15,7 +15,7 @@ class CustomDialog extends StatefulWidget {
 class _CustomDialogState extends State<CustomDialog> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  final _store = Store();
+  final _store = StoreCategory();
   String _imageURL;
   String _name;
   File _image;

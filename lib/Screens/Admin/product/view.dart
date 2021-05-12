@@ -5,9 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:team_gp/Model/product.dart';
 import 'package:team_gp/Screens/Admin/category/add.dart';
-import 'package:team_gp/Screens/Admin/category/edit.dart';
-import 'package:team_gp/Screens/Admin/product/add.dart';
-import 'package:team_gp/Screens/Services/prod.dart';
+import 'package:team_gp/Screens/Services/pro.dart';
 import 'package:team_gp/Screens/Widget/button.dart';
 import 'package:team_gp/Screens/Admin/product/edit.dart';
 
@@ -17,7 +15,7 @@ class ViewProduct extends StatefulWidget {
 }
 
 class _ViewProductState extends State<ViewProduct> {
-  final _store = Store();
+  final _store = StoreProduct();
 
   @override
   Widget build(BuildContext context) {

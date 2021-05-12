@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:team_gp/Screens/Admin/product/add.dart';
 import 'package:team_gp/Screens/Home/ListOfUser.dart';
+import 'package:team_gp/Screens/Admin/category/add.dart';
 
 import 'category/add.dart';
 import 'category/view.dart';
@@ -21,8 +24,11 @@ class _DashboardState extends State<Dashboard> {
   GlobalKey<FormState> _categoryFormKey = GlobalKey();
   GlobalKey<FormState> _brandFormKey = GlobalKey();
   int count_category;
+  DocumentSnapshot snapshot;
+  TaskSnapshot snapshott;
   //BrandService _brandService = BrandService();
   //CategoryService _categoryService = CategoryService();
+  final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +105,7 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                               )),
                           subtitle: Text(
-                            '7',
+                            '122',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: active, fontSize: 60.0),
                           )),
@@ -233,7 +239,14 @@ class _DashboardState extends State<Dashboard> {
                 "Add product",
                 style: TextStyle(fontSize: 20.0),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CustomDialogg(),
+                  ),
+                );
+              },
             ),
             Divider(),
             ListTile(

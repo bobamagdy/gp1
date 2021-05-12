@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Category {
   String name;
   String image;
@@ -8,4 +10,10 @@ class Category {
     this.image,
     this.id,
   });
+
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+
+  Stream<QuerySnapshot> loadCategory() {
+    return _firebaseFirestore.collection('Category').snapshots();
+  }
 }

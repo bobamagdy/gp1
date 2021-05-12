@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:team_gp/Model/product.dart';
 
-class Store {
+class StoreProduct {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   addProduct(Product product) {
