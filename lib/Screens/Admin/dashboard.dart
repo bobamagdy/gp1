@@ -243,7 +243,7 @@ class _DashboardState extends State<Dashboard> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CustomDialogg(),
+                    builder: (context) => AddProduct(),
                   ),
                 );
               },

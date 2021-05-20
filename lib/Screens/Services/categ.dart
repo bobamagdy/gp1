@@ -15,6 +15,10 @@ class StoreCategory {
     return _firebaseFirestore.collection('Category').snapshots();
   }
 
+  listAllPorod(documentId) {
+    _firebaseFirestore.collection('Category').doc(documentId).get();
+  }
+
   deleteCategory(documentId) {
     _firebaseFirestore.collection('Category').doc(documentId).delete();
   }

@@ -9,6 +9,8 @@ class StoreProduct {
       'name': product.name,
       'image': product.image,
       'category': product.category,
+      'createdAt': product.createdAt,
+      'id': product.id,
     });
   }
 

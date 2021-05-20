@@ -161,6 +161,18 @@ class _ViewCategoryState extends State<ViewCategory> {
                                           color: Colors.blueGrey[700],
                                         )),
                                       ),
+                                      MyPopUpMenuItem(
+                                        onClick: () {
+                                          _store.listAllPorod(
+                                              categories[index].id);
+                                          Navigator.pop(context);
+                                        },
+                                        child: Center(
+                                            child: Icon(
+                                          Icons.details,
+                                          color: Colors.blueGrey[700],
+                                        )),
+                                      ),
                                     ]);
                               },
                               child: Opacity(
