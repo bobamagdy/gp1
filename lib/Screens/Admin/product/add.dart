@@ -166,7 +166,7 @@ class _AddProductState extends State<AddProduct> {
                             onChanged: (categoryValue) {
                               final snackBar = SnackBar(
                                 content: Text(
-                                  'Selected Category is $categoryValue',
+                                  'Selected type of Category is $categoryValue',
                                   style: TextStyle(color: Colors.black),
                                 ),
                               );
