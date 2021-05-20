@@ -5,6 +5,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:team_gp/Model/product.dart';
 import 'package:team_gp/Screens/Admin/category/add.dart';
+import 'package:team_gp/Screens/Admin/category/view.dart';
+import 'package:team_gp/Screens/Admin/product/add.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:team_gp/Screens/Services/pro.dart';
 import 'package:team_gp/Screens/Widget/button.dart';
 import 'package:team_gp/Screens/Admin/product/edit.dart';
@@ -21,6 +24,15 @@ class _ViewProductState extends State<ViewProduct> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(
+              FontAwesomeIcons.store,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => ViewCategory()));
+            }),
         elevation: 0,
         backgroundColor: Colors.blueGrey[500],
         iconTheme: IconThemeData(
@@ -36,11 +48,11 @@ class _ViewProductState extends State<ViewProduct> {
               for (var doc in snapshot.data.docs) {
                 var data = doc.data();
                 products.add(Product(
-                  id: doc.id,
-                  name: data['name'],
-                  image: data['image'],
-                  category: data['category'],
-                ));
+                    id: doc.id,
+                    name: data['name'],
+                    image: data['image'],
+                    category: data['category'],
+                    createdAt: data['createdAt']));
               }
 
               return StaggeredGridView.countBuilder(
@@ -208,9 +220,8 @@ class _ViewProductState extends State<ViewProduct> {
         width: 70,
         height: 70,
         onPressed: () {
-          showDialog(
-              context: context,
-              builder: (BuildContext context) => CustomDialog());
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => AddProduct()));
         },
         text: Text(''),
         icon: Icon(
@@ -222,6 +233,8 @@ class _ViewProductState extends State<ViewProduct> {
     );
   }
 }
+
+class CustomDialogg {}
 
 class MyPopUpMenuItem<T> extends PopupMenuItem<T> {
   final Widget child;

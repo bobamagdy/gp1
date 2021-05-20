@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:team_gp/Screens/Admin/category/edit.dart';
 import 'package:team_gp/Screens/Admin/product/edit.dart';
+import 'Screens/Admin/product/list.dart';
 import 'Screens/Login/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 

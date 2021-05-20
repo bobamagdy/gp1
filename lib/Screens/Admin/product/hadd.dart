@@ -5,25 +5,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:team_gp/Model/product.dart';
-import 'package:team_gp/Screens/Admin/product/view.dart';
 import 'package:team_gp/Screens/Services/pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart' as p;
 
-class AddProduct extends StatefulWidget {
+class AddPro extends StatefulWidget {
   @override
-  _AddProductState createState() => _AddProductState();
+  _AddProState createState() => _AddProState();
 }
 
-class _AddProductState extends State<AddProduct> {
-  var selectedCategory, selectedType;
+class _AddProState extends State<AddPro> {
+  var selectedCurrency, selectedType;
   final GlobalKey<FormState> _formKeyValue = new GlobalKey<FormState>();
   String categoryName;
   final _store = StoreProduct();
   String _imageURL;
   String _name;
-  String _id;
-
   File _image;
   @override
   Widget build(BuildContext context) {
@@ -44,15 +41,13 @@ class _AddProductState extends State<AddProduct> {
           ),
           actions: <Widget>[
             IconButton(
-                icon: Icon(
-                  FontAwesomeIcons.store,
-                  size: 20.0,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => ViewProduct()));
-                }),
+              icon: Icon(
+                FontAwesomeIcons.store,
+                size: 20.0,
+                color: Colors.white,
+              ),
+              onPressed: null,
+            ),
           ],
         ),
         body: Form(
@@ -151,7 +146,7 @@ class _AddProductState extends State<AddProduct> {
                           DropdownMenuItem(
                             child: Text(snap.get('name'),
                                 style: TextStyle(color: Colors.black)),
-                            value: snap.id,
+                            value: snap.get('name'),
                           ),
                         );
                       }
@@ -163,22 +158,22 @@ class _AddProductState extends State<AddProduct> {
                           SizedBox(width: 50.0),
                           DropdownButton(
                             items: currencyItems,
-                            onChanged: (categoryValue) {
+                            onChanged: (currencyValue) {
                               final snackBar = SnackBar(
                                 content: Text(
-                                  'Selected Category is $categoryValue',
+                                  'Selected Currency value is $currencyValue',
                                   style: TextStyle(color: Colors.black),
                                 ),
                               );
                               Scaffold.of(context).showSnackBar(snackBar);
                               setState(() {
-                                selectedCategory = categoryValue;
+                                selectedCurrency = currencyValue;
                               });
                             },
-                            value: selectedCategory,
+                            value: selectedCurrency,
                             isExpanded: false,
                             hint: new Text(
-                              "Choose Category Type",
+                              "Choose Currency Type",
                               style: TextStyle(color: Colors.black),
                             ),
                           ),
@@ -211,15 +206,11 @@ class _AddProductState extends State<AddProduct> {
                           _formKeyValue.currentState.save();
                           //_formkey.currentState.reset();
                           _store.addProduct(Product(
-                            id: selectedCategory,
                             name: _name,
                             image: _imageURL,
-                            category: selectedCategory,
-                            createdAt: DateTime.now().toString(),
+                            category: selectedCurrency,
                           ));
                         }
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => ViewProduct()));
                       },
                       shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0))),
